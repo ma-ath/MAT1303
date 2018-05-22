@@ -1,0 +1,18 @@
+Aluno: Alexandre Wanick Vieira
+Trabalho de MAT1303: Xadrez chinês ou Damas chinesas
+
+Arquivos:
+main.cpp
+Casa.hpp
+Casa.cpp
+Window.hpp
+Stack.hpp
+
+Funcionamento do jogo:
+Ao abrir a tela que contém o tabuleiro, é possível começar o jogo.
+O primeiro a jogar é o jogador vermelho.
+O jogador verde realiza jogadas automaticamente.
+Pressione o botão direito do mouse sobre as casas para realizar uma jogada.
+Pressione espaço para encerrar a jogada caso, na mesma, pule casas.
+Pressione o botão direito do mouse para voltar uma jogada.
+Pressione a letra 'c' para ativar ou desativar a CPU (jogada automática) do jogador 2.

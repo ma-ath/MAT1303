@@ -492,6 +492,7 @@ void teclado(unsigned char key, int x, int y)
 int main(int argc, char **argv)
 {
 	cout << "Pressione espaco para encerrar sua jogada caso pule casas." << endl;
+	cout << "Pressione o botao direito do mouse para voltar uma jogada." << endl;
 	cout << "Pressione a letra 'c' para ativar ou desativar a CPU do jogador 2." << endl;
 	preparaTabuleiro();
 	glutInit(&argc, argv);
