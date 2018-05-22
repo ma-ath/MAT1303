@@ -70,15 +70,16 @@ bool checkHalma(void)
 // se retornar false, os valores i e j passados como referência não se alteram.
 bool checkCasa(int x, int y, int& ci, int& cj)
 {
-	float px = x;
-	float py = y;
-	float l = c[0][0].getl();
-	float lcos30 = (l * sqrt(3.0)) / 2;
-	float maxy = c[0][0].getcy() + (0.775 * l);
-	float disty = 1.75 * l;
-	int faixa = -1;
-	int i, j;
+	float px = x;  // ponto x paramétrico (entre -1 e 1)
+	float py = y;  // ponto y paramétrico (entre -1 e 1)
+	float l = c[0][0].getl();  // lado do hexágono
+	float lcos30 = (l * sqrt(3.0)) / 2;  // metade da largura do hexágono
+	float maxy = c[0][0].getcy() + (0.775 * l);  // maior ponto y paramétrico pertencente à casa [0][0]
+	float disty = 1.75 * l;  // distância paramétrica do eixo y entre o centro de uma casa e o de outra logo acima ou abaixo
+	int faixa = -1;  // faixa horizontal em que a casa se encontra, indo de 0 a 16
+	int i, j;  // contadores e índices da matriz de casas
 
+	// adapta pontos x e y para serem paramétricos
 	px -= DIMX / 2.0;
 	py -= DIMY / 2.0;
 	px /= DIMX / 2.0;
@@ -118,7 +119,7 @@ bool checkCasa(int x, int y, int& ci, int& cj)
 	return false;
 }
 
-// função que checa qual é o jogador vencedor
+// função que retorna true caso já haja um vencedor, false caso contrário
 bool checkVencedor(void)
 {
 	bool check = true;
@@ -268,9 +269,11 @@ void desfazJogada(void)
 // função que executa a jogada automatizada
 void CPUplay(void)
 {
+	// pega um seed para garantir que o número será aleartório
 	srand((unsigned)time(NULL));
 
 	while (turn == PLAYER_TWO) {
+		// escolhe uma casa aleatoriamente para andar
 		int r = rand() % 10;
 
 		si = cpu[r][I];
@@ -279,11 +282,13 @@ void CPUplay(void)
 		if (c[si][sj].getColour() != GREEN)
 			continue;
 
+		// número que pode ser 0 ou 1 para andar
 		int ri = rand() % 2;
 
 		if (si < 8)
 			mi = si + ri;
 
+		// número que pode ser 0 ou 1 para andar
 		int rj = rand() % 2;
 
 		if (sj < 8)
@@ -307,10 +312,11 @@ void CPUplay(void)
 // função que prepara o tabuleiro
 void preparaTabuleiro(void)
 {
-	float l = 0.0625;
-	float distx = l;
-	float disty = 1.75 * l;
+	float l = 0.0625;  // lado do hexágono
+	float distx = l;  // distância paramétrica do eixo x entre o centro de uma casa e o de outra em qualquer um dos lados
+	float disty = 1.75 * l;  // distância paramétrica do eixo y entre o centro de uma casa e o de outra logo acima ou abaixo
 
+	// seta as posições de todas as casas
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
 			c[i][j].setl(l);
@@ -321,6 +327,7 @@ void preparaTabuleiro(void)
 
 	int k = 0;
 
+	// seta as cores das casas verdes e guarda seus índices da matriz de casas
 	for (int i = 0; i < 4; i++)
 		for (int j = 0; j < 4 - i; j++) {
 			c[i][j].setColour(GREEN);
@@ -329,6 +336,7 @@ void preparaTabuleiro(void)
 			k++;
 		}
 
+	// seta as cores das casas vermelhas
 	for (int i = 8; i > 4; i--)
 		for (int j = 8; j > 12 - i; j--)
 			c[i][j].setColour(RED);

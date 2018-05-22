@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <iostream>
 
+// função que prepara os vértices dos 4 triângulos que formam o hexágono
 static void preparaVertices(float cx, float cy, float l, float x[], float y[])
 {
 	float lsen30 = l / 2;

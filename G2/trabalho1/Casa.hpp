@@ -8,16 +8,12 @@
 class Casa
 {
 private:
-	float _cx;
-	float _cy;
-	float _l;
-	char _cor;
+	float _cx;  // centro x da casa, paramétrico
+	float _cy;  // centro y da casa, paramétrico
+	float _l;  // lado do hexágono, paramétrico
+	char _cor;  // cor da casa
 public:
-	Casa(void)
-	{
-		_l = 0.1;
-		_cor = WHITE;
-	}
+	Casa(void) { _l = 0; _cor = WHITE; }
 	float getcx(void) { return _cx; }
 	float getcy(void) { return _cy; }
 	float getl(void) { return _l; }
