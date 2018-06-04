@@ -36,8 +36,8 @@ class ms {
 
 		z[0] = f(x, y);
 		z[1] = f(x + dx, y);
-		z[1] = f(x + dx, y + dy);
-		z[1] = f(x, y + dy);
+		z[2] = f(x + dx, y + dy);
+		z[3] = f(x, y + dy);
 
 		ind  = (z[0] < 0) ? 1 : 0;
 		ind += (z[1] < 0) ? 2 : 0;
@@ -105,7 +105,7 @@ class ms {
 		if ((ind > 0) && (ind < 15)) {
 			float xc[4], yc[4];
 			xc[0] = x;	xc[1] = x + dx;	xc[2] = x + dx;	xc[3] = x;
-			yc[0] = y;	yc[1] = y;		yc[2] = y + dy;	yc[3] = y + dy;
+			yc[0] = y;	yc[1] = y;	yc[2] = y + dy;	yc[3] = y + dy;
 		}
 	}
-}
+};
