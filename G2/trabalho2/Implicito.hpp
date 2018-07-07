@@ -1,3 +1,6 @@
+#ifndef IMPLICITO_HPP
+#define IMPLICITO_HPP
+
 class Implicito
 {
 private:
@@ -19,11 +22,9 @@ public:
 	}
 	float f(float x, float y, float z)
 	{
-		float w = x*x + y*y + z*z - 1;
-		return w;
+		return x * x + y * y + z * z - 1;
 	}
-	void n(float x, float y, float z, float *r);
 	void display_superficie(void);
-	void tetraedro(float *v0, float *v1, float *v2, float *v3);
-	void display_superficiep(void);
 };
+
+#endif

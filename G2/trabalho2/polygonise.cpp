@@ -1,11 +1,11 @@
 #include "polygonise.h"
-#include <math.h>
+#include <cmath>
 
 /*
    Linearly interpolate the position where an isosurface cuts
    an edge between two vertices, each with their own scalar value
 */
-static XYZ VertexInterp(double isolevel,XYZ p1,XYZ p2,double valp1,double valp2)
+XYZ VertexInterp(double isolevel,XYZ p1,XYZ p2,double valp1,double valp2)
 {
    double mu;
    XYZ p;
